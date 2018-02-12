@@ -1,4 +1,5 @@
 <?php
+header('Access-Control-Allow-Origin: *');
 //$_GET['date'] date in 'YYYY-MM-DD' format
 
 $ret = [];

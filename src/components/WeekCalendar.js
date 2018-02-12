@@ -11,7 +11,7 @@ export default class WeekCalendar extends Component {
                 <Row className="show-grid">
                     {this.props.data.map((item, i) => {
                         return (
-                            <Col sm={12} md={2} className='calendar-column'>
+                            <Col sm={12} md={2} className='calendar-column' key={i}>
 
                                 <div className='table-header'> {moment().add(i, 'days').format('dddd')}</div>
                                 <div className={"day-info " + (item.status.active === 1 ? 'active-day' : '')}>

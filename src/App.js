@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {Button} from 'react-bootstrap'
 import './App.css';
-import $ from 'jquery';
 import moment from 'moment';
 import WeekCalendar from './components/WeekCalendar';
 import ReqError from './components/ReqError';
