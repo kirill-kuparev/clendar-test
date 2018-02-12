@@ -21,3 +21,5 @@ for ($a = 0; $a < 7; $a++) {
 }
 
 echo json_encode($ret);
+
+?>

@@ -7,7 +7,6 @@ import WeekCalendar from './components/WeekCalendar';
 import ReqError from './components/ReqError';
 import InfoAlert from './components/InfoAlert';
 
-
 class App extends Component {
 
     constructor(props) {
@@ -21,24 +20,23 @@ class App extends Component {
 
 
     getData() {
+        const self = this;
 
         const dateNow = moment().format('YYYY-MM-DD');
 
-        $.ajax({
-            url: 'http://localhost/index.php',
-            type: "GET",
-            data: {'date': dateNow},
-            dataType: "json",
-            success: data => {
-                this.setState({data: data})
-            },
-            error:(xhr, status, err) =>{
-                this.setState({error: status})
+        var xmlhttp = new XMLHttpRequest();
+
+        xmlhttp.onreadystatechange =  function () {
+
+            if (this.readyState === 4 && this.status === 200) {
+
+                self.setState({data :JSON.parse(this.response)})
             }
-        });
+        };
 
+        xmlhttp.open("GET", "http://localhost:3030/public/schedule.php?date="+dateNow, true);
+        xmlhttp.send();
     }
-
 
     render() {
 
